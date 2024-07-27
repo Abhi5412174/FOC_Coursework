@@ -13,23 +13,16 @@ def update_inventory(furniture_id, quantity_change):
     write_inventory(inventory)
 
 def order_furniture(furniture_id, quantity, employee_name):
-    if not update_inventory(furniture_id, quantity):
-        # If the furniture ID was not found in the inventory, add the new product
-        print("\nItem not available in inventory. Adding new item...")
-        manufacturer = input("Enter manufacturer name: ")
-        product_name = input("Enter product name: ")
-        price = input("Enter price per unit (e.g. $50): ")
-        add_new_product(furniture_id, manufacturer, product_name, quantity, price)
-        
-        # After adding the new product, we need to update the inventory again
-        update_inventory(furniture_id, quantity)
+    product_list = read_inventory()
+    product_found = False
     
-    # Proceed with the ordering process
-    inventory = read_inventory()
-    for item in inventory:
+    for item in product_list:
         if item[0] == furniture_id:
+            product_found = True
+            update_inventory(furniture_id, quantity)
             price_per_unit = float(item[4].replace('$', ''))
-            total_cost = quantity * price_per_unit 
+            total_cost = quantity * price_per_unit
+            
             with open(f'order_invoice_of_{employee_name}_{datetime.datetime.now().strftime("%Y%m%d%H%M")}.txt', 'w') as file:
                 file.write(f"Order Invoice\n")
                 file.write("----------------------------\n")
@@ -38,10 +31,20 @@ def order_furniture(furniture_id, quantity, employee_name):
                 file.write(f"Product Name: {item[2]}\n")
                 file.write(f"Quantity Ordered: {quantity}\n")
                 file.write(f"Employee Name: {employee_name}\n")
-                file.write(f"Date and Time: {datetime.datetime.now().strftime("%Y-%m-%d- %H:%M")}\n")
+                file.write(f"Date and Time: {datetime.datetime.now().strftime('%Y-%m-%d %H:%M')}\n")
                 file.write("----------------------------\n")
                 file.write(f"Total Cost: ${total_cost:.2f}\n")
             break
+    
+    if not product_found:
+        print("\nThis product is not in inventoory so adding the item in inventory......\n")
+        manufacturer = input("Enter manufacturer name: ")
+        product_name = input("Enter product name: ")
+        price = input("Enter price per unit (e.g. $50): ")
+        add_new_product(furniture_id, manufacturer, product_name, quantity, price)
+        # After adding the new product, place the order again
+        order_furniture(furniture_id, quantity, employee_name)
+
 
 def sell_furniture(customer_name, furniture_id, quantity):
     inventory = read_inventory()

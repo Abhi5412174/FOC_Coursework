@@ -4,17 +4,15 @@ def read_furniture_data():
     try:
         with open("inventory.txt", "r") as file:
             lines = file.readlines()
-        
         # Split the lines into columns based on comma
         data = [line.strip().split(",") for line in lines]
        
-        print(f"\n{'ID':<2} | {'Manufacturers':<30} | {'Product Name':<15} | {'Quantity':<6} | {'Price':<5}")
-        print("-" * 75)
+        print(f"\n{'ID':<2} | {'Manufacturers':<30} | {'Product Name':<15} | {'Quantity':<10} | {'Price':<5}")
+        print("-" * 78)
         
         for row in data:
-            
-            print(f"{row[0]:<2} | {row[1]:<30} | {row[2]:<15} | {row[3]:<6} | {row[4]:<8}")
-            print("-" * 75)
+            print(f"{row[0]:<2} | {row[1]:<30} | {row[2]:<15} | {row[3]:<10} | {row[4]:<8}")
+            print("-" * 78)
             
     except FileNotFoundError:
         print(f"\nThe file 'inventory.txt' does not exist.")
@@ -23,9 +21,7 @@ def read_furniture_products():
     try:
         with open("inventory.txt", "r") as file:
             lines = file.readlines()
-        
         data = [line.strip().split(", ") for line in lines]
-
         # Print the header
         print(f"{'ID':<2} | {'Product Name':<15} | {'Quantity':<6} | {'Price':<5}")
         print("-" * 35)
