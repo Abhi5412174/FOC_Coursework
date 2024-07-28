@@ -1,6 +1,5 @@
 def read_furniture_data():
-    
-    """Read furniture data from a text file."""
+    '''Read furniture data from a text file.'''
     try:
         with open("inventory.txt", "r") as file:
             lines = file.readlines()
