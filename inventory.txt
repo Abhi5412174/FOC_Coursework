@@ -1,8 +1,11 @@
-1, HNI Corporation, Bunk Bed, 110, $400
-2, HNI CorporationHaworth Inc., Twin Bed, 400, $600
-3, Achham furniture, Sleeper Sofa, 50, $200
-4, Kimball International Inc., Corner sofa, 75, $350
+1, HNI Corporation, Bunk Bed, 9, $400
+2, HNI CorporationHaworth Inc., Twin Bed, 351, $600
+3, Achham furniture, Sleeper Sofa, 30, $200
+4, Kimball International Inc., Corner sofa, 84, $350
 5, Kohler Co., Armchair, 30, $150
-6, Masco Corporation, Desk chair, 38, $100
-7, AS business, cycle, 22, $200
-8, SDF, Chaddi, 0, $50
+6, Masco Corporation, Desk chair, 42, $100
+7, AS business, cycle, 20, $200
+8, BNH furnitures, cup, 8, $30
+9, WWQ furnitures, Phone, 17, $2000
+10, QQW, laptop, 4, 10
+11, QWE furnitures, Desk, 40, $300
