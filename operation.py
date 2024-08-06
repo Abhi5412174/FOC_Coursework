@@ -2,6 +2,7 @@ import datetime
 from write import write_inventory, add_new_product
 from read import read_inventory
 from write import order_Invoice,sell_invoice
+import random
 
 def update_inventory(furniture_id, quantity_change):
     inventory = read_inventory()
@@ -52,7 +53,7 @@ def generate_invoice(transactions):
     price_per_units = []
     item_totals = []
     subtotal = 0
-    shipping_cost = 50
+    shipping_cost = random.choice([10,20,30,40,50,60])
 
     for transaction in transactions:
         furniture_ids.append(transaction["furniture_id"])
