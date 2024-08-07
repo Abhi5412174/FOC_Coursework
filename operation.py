@@ -2,9 +2,22 @@ import datetime
 from write import write_inventory, add_new_product
 from read import read_inventory
 from write import order_Invoice,sell_invoice
-import random
 
 def update_inventory(furniture_id, quantity_change):
+    '''
+    Description: Updates the quantity of a specific furniture item in the inventory.
+    The function reads the current inventory from "inventory.txt", adjusts the quantity of the item
+    with the given furniture ID by the specified quantity change, and writes the updated inventory back
+    to the file.
+
+    Arguments: 
+    furniture_id (str): The ID of the furniture item whose quantity needs to be updated.
+    quantity_change (int): The amount by which to change the item's quantity. This can be positive (to add) or negative (to remove).
+
+    Return: 
+    None
+
+    '''
     inventory = read_inventory()
     for item in inventory:
         if item[0] == furniture_id:
@@ -15,6 +28,23 @@ def update_inventory(furniture_id, quantity_change):
     write_inventory(inventory)
 
 def order_furniture(furniture_id, quantity, employee_name, transactions):
+    '''
+    Description: Processes an order for a specific furniture item. The function checks if the item is present
+    in the inventory, updates its quantity if available, and adds the order details to the transaction list.
+    If the item is not found in the inventory, it prompts the user to enter the item's details, adds the item
+    to the inventory, and then processes the order.
+
+    Arguments: 
+    furniture_id (str): The ID of the furniture item being ordered.
+    quantity (int): The quantity of the furniture item being ordered.
+    employee_name (str): The name of the employee handling the order.
+    transactions (List of dict): A list where each dictionary represents a transaction and includes details
+    such as furniture ID, manufacturer, product name, quantity, price per unit, and total cost.
+
+    Return: 
+    None
+
+    '''
     product_list = read_inventory()
     product_found = False
     
@@ -45,6 +75,20 @@ def order_furniture(furniture_id, quantity, employee_name, transactions):
         order_furniture(furniture_id, quantity, employee_name, transactions)
 
 def generate_invoice(transactions):
+    '''
+    Description: Generates an order invoice based on the provided transactions and saves it to a file. 
+    The invoice includes details such as furniture IDs, manufacturers, product names, quantities, 
+    price per unit, item totals, subtotal, shipping cost (gives the choice to input the location in the form of really far, far and near), and grand total. The filename is created using 
+    the employee's name and the current date and time.
+
+    Arguments: 
+    transactions (List of dict): A list of dictionaries where each dictionary represents a transaction
+    with details such as furniture ID, manufacturer, product name, quantity, price per unit, and total cost.
+
+    Return: 
+    None
+    
+    '''
     filename = f'order_invoice_of_{transactions[0]["employee_name"]}_{datetime.datetime.now().strftime("%Y%m%d%H%M")}.txt'
     furniture_ids = []
     manufacturers = []
@@ -53,7 +97,14 @@ def generate_invoice(transactions):
     price_per_units = []
     item_totals = []
     subtotal = 0
-    shipping_cost = random.choice([10,20,30,40,50,60])
+    print("\nHow far is the manufacture's Factrory from your location?\n")
+    distanceChecker = input("1 for really Far | 2 for Far | 3 for near: ")
+    if distanceChecker == "1":
+        shipping_cost = 100
+    elif distanceChecker == "2":
+        shipping_cost = 60
+    else:
+        shipping_cost = 40
 
     for transaction in transactions:
         furniture_ids.append(transaction["furniture_id"])
@@ -68,6 +119,19 @@ def generate_invoice(transactions):
     order_Invoice(furniture_ids, manufacturers, product_names, quantities, transactions, price_per_units, item_totals, subtotal, shipping_cost, grand_total, filename)
 
 def sell_furniture(customer_name, transactions):
+    '''
+    Description: Processes sales transactions for furniture items, updating inventory and generating a sale invoice. 
+    The function checks if each item in the transaction list is available in the inventory and processes valid transactions. 
+    It calculates the subtotal, VAT, and shipping cost based on the location of the customer. Invalid transactions are logged.
+
+    Arguments: 
+    customer_name (str): The name of the customer making the purchase.
+    transactions (List of dict): A list of dictionaries where each dictionary contains transaction details including furniture ID, quantity, and other transaction-related information.
+
+    Return: 
+    None
+    
+    '''
     inventory = read_inventory()
     subtotal = 0
     vat_amount = 0

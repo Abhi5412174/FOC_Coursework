@@ -1,5 +1,15 @@
 def read_furniture_data():
-    '''Read furniture data from a text file.'''
+    '''
+    Description: Reads furniture data from a text file named "inventory.txt" and prints it in a tabular format.
+    The text file is expected to contain lines of comma-separated values with columns for ID, Manufacturer, Product Name, Quantity, and Price.
+    
+    Arguments: none
+    
+    Return: none
+    
+    Raises:
+    FileNotFoundError: If the file "inventory.txt" does not exist.
+    '''
     try:
         with open("inventory.txt", "r") as file:
             lines = file.readlines()
@@ -17,6 +27,20 @@ def read_furniture_data():
         print(f"\nThe file 'inventory.txt' does not exist.")
 
 def read_furniture_products():
+    '''
+    Description: Reads furniture product data from a text file named "inventory.txt" and prints it in a tabular format.
+    The text file is expected to contain lines of comma-separated values with columns for ID, Manufacturer,
+    Product Name, Quantity, and Price.
+
+    Arguments: 
+    None
+    
+    Return: 
+    None
+    
+    Raises:
+    FileNotFoundError: If the file "inventory.txt" does not exist.
+    '''
     try:
         with open("inventory.txt", "r") as file:
             lines = file.readlines()
@@ -37,6 +61,19 @@ def read_furniture_products():
 
 
 def read_inventory():
+    '''
+    Description: Reads inventory data from a text file named "inventory.txt" and returns it as a list of lists.
+    Each list represents a line in the file, split into columns based on commas.
+
+    Arguments: 
+    None
+    
+    Return: 
+    List of lists: Each inner list contains values from a line in the file, split by comma.
+    
+    Raises:
+    FileNotFoundError: If the file "inventory.txt" does not exist.
+    '''
     try: 
         with open('inventory.txt', 'r') as file:
             lines = file.readlines()
