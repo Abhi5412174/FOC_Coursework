@@ -37,7 +37,7 @@ def add_new_product(furniture_id, manufacturer, product_name, quantity, price):
     inventory.append([furniture_id, manufacturer, product_name, str(quantity), price])
     write_inventory(inventory)
     
-def order_Invoice(furniture_ids,manufacturers,product_names,quantities,transactions,price_per_units,item_totals,subtotal,shipping_cost,grand_total,filename):
+def order_Invoice(furniture_ids,manufacturers,product_names,quantities,transactions,price_per_units,item_totals,subtotal,shipping_cost,grand_total,filename,vat_amount):
     '''
     Description: Generates an order invoice and writes it to a specified file. The invoice includes details
     about the ordered items, such as furniture IDs, manufacturers, product names, quantities, prices, and 
@@ -71,8 +71,9 @@ def order_Invoice(furniture_ids,manufacturers,product_names,quantities,transacti
         file.write(f"Employee Name: {transactions[0]['employee_name']}\n")
         file.write(f"Price Per Unit: {', '.join(price_per_units)}\n")
         for i in range(len(furniture_ids)):
-            file.write(f"Total Cost for Item {i+1} (ID {furniture_ids[i]}): {item_totals[i]}\n")     
+            file.write(f"Total Cost for Item {i+1} (ID {furniture_ids[i]}): {item_totals[i]}\n")
         file.write(f"Subtotal: ${subtotal:.2f}\n")
+        file.write(f"VAT amount: ${vat_amount}\n")
         file.write(f"Shipping Cost: ${shipping_cost:.2f}\n")
         file.write("----------------------------------------------------\n")
         file.write(f"Grand Total Cost for all items: ${grand_total:.2f}\n")

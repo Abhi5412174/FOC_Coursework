@@ -97,8 +97,9 @@ def generate_invoice(transactions):
     price_per_units = []
     item_totals = []
     subtotal = 0
-    print("\nHow far is the manufacture's Factrory from your location?\n")
-    distanceChecker = input("1 for really Far | 2 for Far | 3 for near: ")
+    vat_amount = 0
+    print("\nHow far is the manufacture's Factrory from your location?")
+    distanceChecker = input("1. for more than 5 Km far\n2. for 2 Km far or more\n3. for less than 2 Km far: ")
     if distanceChecker == "1":
         shipping_cost = 100
     elif distanceChecker == "2":
@@ -114,9 +115,10 @@ def generate_invoice(transactions):
         price_per_units.append(f"${transaction['price_per_unit']:.2f}")
         item_totals.append(f"${transaction['total_cost']:.2f}")
         subtotal += transaction["total_cost"]
+        vat_amount = subtotal * 0.13
     
-    grand_total = subtotal + shipping_cost
-    order_Invoice(furniture_ids, manufacturers, product_names, quantities, transactions, price_per_units, item_totals, subtotal, shipping_cost, grand_total, filename)
+    grand_total = vat_amount + shipping_cost + subtotal
+    order_Invoice(furniture_ids, manufacturers, product_names, quantities, transactions, price_per_units, item_totals, subtotal, shipping_cost, grand_total, filename,vat_amount)
 
 def sell_furniture(customer_name, transactions):
     '''
@@ -158,8 +160,7 @@ def sell_furniture(customer_name, transactions):
                     update_inventory(transaction["furniture_id"], -transaction["quantity"])
                 else:
                     print("\nSome transactions could not be processed.")
-                    print("You may have entered more Quantities of products than inventory.")
-                    print("Please enter the valid furniture ID to proceed further.")
+                    print("Please enter the valid furniture ID or Quantiry to proceed further.")
                     print("Thank You!")
                 break
         
