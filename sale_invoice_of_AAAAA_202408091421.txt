@@ -1,0 +1,18 @@
+Sale Invoice
+----------------------------
+Customer Name: AAAAA
+Furniture ID: 1, 1, 1, 2
+Brand: HNI Corporation, HNI Corporation, HNI Corporation, HNI CorporationHaworth Inc.
+Product Name: Bunk Bed, Bunk Bed, Bunk Bed, Twin Bed
+Quantity Sold: 1111111111, 1001, 1, 393
+Price per Unit: $400.00, $400.00, $400.00, $600.00
+Subtotal: $444445081000.00
+VAT (13%): $57777860530.00
+Shipping Cost: $0.00
+--------------------------------------------------
+Total Cost for Item 1 (ID 1): $444444444400.00
+Total Cost for Item 2 (ID 1): $400400.00
+Total Cost for Item 3 (ID 1): $400.00
+Total Cost for Item 4 (ID 2): $235800.00
+--------------------------------------------------
+Grand Total Amount to be Paid: $502222941530.00

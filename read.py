@@ -7,13 +7,12 @@ def read_furniture_data():
     
     Return: none
     
-    Raises:
+    Exception:
     FileNotFoundError: If the file "inventory.txt" does not exist.
     '''
     try:
         with open("inventory.txt", "r") as file:
             lines = file.readlines()
-        # Split the lines into columns based on comma
         data = [line.strip().split(",") for line in lines]
        
         print(f"\n{'ID':<2} | {'Manufacturers':<30} | {'Product Name':<15} | {'Quantity':<10} | {'Price':<5}")
@@ -38,7 +37,7 @@ def read_furniture_products():
     Return: 
     None
     
-    Raises:
+    Exception:
     FileNotFoundError: If the file "inventory.txt" does not exist.
     '''
     try:
@@ -71,7 +70,7 @@ def read_inventory():
     Return: 
     List of lists: Each inner list contains values from a line in the file, split by comma.
     
-    Raises:
+    Exception:
     FileNotFoundError: If the file "inventory.txt" does not exist.
     '''
     try: 

@@ -158,10 +158,7 @@ def sell_furniture(customer_name, transactions):
                     subtotal += total_cost
                     vat_amount += total_cost * 0.13
                     update_inventory(transaction["furniture_id"], -transaction["quantity"])
-                else:
-                    print("\nSome transactions could not be processed.")
-                    print("Please enter the valid furniture ID or Quantiry to proceed further.")
-                    print("Thank You!")
+
                 break
         
         if not product_found:
@@ -169,7 +166,7 @@ def sell_furniture(customer_name, transactions):
 
     if valid_transactions:
         print("\nIf you are outside the valley, you may incur extra shipping costs.")
-        location = input("\nYour Location (1 for inside valley / 2 for outside valley): ")
+        location = input("\nYour Location (1 for inside Sundarharaincha / 2 for outside Sundarharaincha): ")
         print("------------------------------------------------------------------")
         
         if location == "2":

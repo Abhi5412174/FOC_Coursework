@@ -3,20 +3,17 @@ from submain import for_choice_2,for_choice_3
 
 def main():
     '''
-    Description: Main function to drive the BRJ Furniture Store Management System. It provides a menu-driven interface
-    to allow users to perform various operations such as displaying available furniture, purchasing furniture from 
-    manufacturers, selling furniture to customers, and exiting the program. The function handles user input, manages
-    transactions, and generates invoices as needed.
+    Description: Provides a menu-driven interface for the BRJ Furniture Store Management System. 
+    The function continuously displays a menu with options to display available furniture, 
+    purchase furniture from the manufacturer, sell furniture to customers, or exit the program.
+    Based on user input, it calls corresponding functions to handle each operation.
+    
+    Arguments: none
+    
+    Return: none
 
-    Arguments:
-    None
-    
-    Return: 
-    None
-    
-    Raises:
-    ValueError: If the user inputs invalid data for quantity or other required fields.
     '''
+    
     while True:
         print("\n===================================================")
         print(" Welcome to BRJ Furniture Store Management System")
@@ -37,7 +34,7 @@ def main():
             for_choice_3()
             
         elif choice == '4':
-            print("\n------------------Exiting-----------------\n")
+            print("\n---------------Exiting-----------------\n")
             print("\n-----------------------------------------")
             print("Thank you for choosing BRJ Furniture.")
             print("-----------------------------------------\n")

@@ -2,6 +2,21 @@ from read import read_furniture_products,read_inventory
 from operation import order_furniture, generate_invoice,sell_furniture
 
 def for_choice_2 ():
+    '''
+    Description: Facilitates the process of placing an order for furniture by an employee. 
+    The function prompts the user to enter the employee's name, select furniture items from the inventory, specify quantities,
+    and then generates an invoice for the order.
+    The function handles input validation for the employee's name and furniture ID, ensuring that the name does not contain digits 
+    and the furniture ID is in digit form. It also ensures that the quantity is a positive number. 
+
+    Arguments: None
+
+    Return: None
+
+    Exception:
+    ValueError: If the user inputs an invalid value for the quantity or other required information.
+    '''
+    
     transactions = []
     employee_name = input("Enter employee name: ")
     if employee_name.isdigit():
@@ -29,6 +44,20 @@ def for_choice_2 ():
         generate_invoice(transactions)
 
 def for_choice_3():
+    '''
+    Description: Manages the process of selling furniture to a customer. The function prompts the user to enter the customer's name 
+    and allows the user to select furniture items from the inventory to sell. It validates the customer's name, furniture ID, 
+    and ensures that the quantity specified is available in the inventory and is a positive number. After processing the transaction(s),
+    the function calls another function to complete the sale.
+
+    Arguments: None
+
+    Return: None
+
+    Exception:
+    ValueError: If the user inputs an invalid value for the quantity or other required information.
+    '''
+    
     transactions = []
     customer_name = input("\nEnter customer name: ")
     if customer_name.isdigit():
@@ -45,7 +74,7 @@ def for_choice_3():
                     for item in inventory:
                         if item[0] == furniture_id:
                             item_available = True
-                            if quantity >= int(item[3]):
+                            if quantity > int(item[3]):
                                 print("Please enter the valid quantity.")
                                 break
                     if item_available:

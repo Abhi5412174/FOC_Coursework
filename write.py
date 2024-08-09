@@ -1,6 +1,5 @@
 from read import read_inventory
 import datetime
-# from operation import generate_invoice
 
 def write_inventory(inventory):
     '''
