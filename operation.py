@@ -11,8 +11,8 @@ def update_inventory(furniture_id, quantity_change):
     to the file.
 
     Arguments: 
-    furniture_id (str): The ID of the furniture item whose quantity needs to be updated.
-    quantity_change (int): The amount by which to change the item's quantity. This can be positive (to add) or negative (to remove).
+    furniture_id : The ID of the furniture item whose quantity needs to be updated.
+    quantity_change : The amount by which to change the item's quantity. This can be positive (to add) or negative (to remove).
 
     Return: 
     None
@@ -35,10 +35,10 @@ def order_furniture(furniture_id, quantity, employee_name, transactions):
     to the inventory, and then processes the order.
 
     Arguments: 
-    furniture_id (str): The ID of the furniture item being ordered.
-    quantity (int): The quantity of the furniture item being ordered.
-    employee_name (str): The name of the employee handling the order.
-    transactions (List of dict): A list where each dictionary represents a transaction and includes details
+    furniture_id : The ID of the furniture item being ordered.
+    quantity : The quantity of the furniture item being ordered.
+    employee_name : The name of the employee handling the order.
+    transactions : A list where each dictionary represents a transaction and includes details
     such as furniture ID, manufacturer, product name, quantity, price per unit, and total cost.
 
     Return: 
@@ -82,7 +82,7 @@ def generate_invoice(transactions):
     the employee's name and the current date and time.
 
     Arguments: 
-    transactions (List of dict): A list of dictionaries where each dictionary represents a transaction
+    transactions : A list of dictionaries where each dictionary represents a transaction
     with details such as furniture ID, manufacturer, product name, quantity, price per unit, and total cost.
 
     Return: 
@@ -127,8 +127,8 @@ def sell_furniture(customer_name, transactions):
     It calculates the subtotal, VAT, and shipping cost based on the location of the customer. Invalid transactions are logged.
 
     Arguments: 
-    customer_name (str): The name of the customer making the purchase.
-    transactions (List of dict): A list of dictionaries where each dictionary contains transaction details including furniture ID, quantity, and other transaction-related information.
+    customer_name : The name of the customer making the purchase.
+    transactions : A list of dictionaries where each dictionary contains transaction details including furniture ID, quantity, and other transaction-related information.
 
     Return: 
     None

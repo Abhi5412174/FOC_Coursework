@@ -8,7 +8,7 @@ def write_inventory(inventory):
     and is joined by commas.
 
     Arguments: 
-    inventory (List of lists): A list where each inner list contains values to be written to the file.
+    inventory : A list where each inner list contains values to be written to the file.
     
     Return: 
     None
@@ -23,11 +23,11 @@ def add_new_product(furniture_id, manufacturer, product_name, quantity, price):
     The new product is added with the specified furniture ID, manufacturer, product name, quantity, and price.
     
     Arguments: 
-    furniture_id (str): The ID of the new furniture product.
-    manufacturer (str): The manufacturer of the new product.
-    product_name (str): The name of the new product.
-    quantity (int): The quantity of the new product.
-    price (str): The price of the new product.
+    furniture_id : The ID of the new furniture product.
+    manufacturer : The manufacturer of the new product.
+    product_name : The name of the new product.
+    quantity : The quantity of the new product.
+    price : The price of the new product.
     
     Return: 
     None
@@ -43,17 +43,17 @@ def order_Invoice(furniture_ids,manufacturers,product_names,quantities,transacti
     total costs. It also includes the subtotal, shipping cost, and grand total.
 
     Arguments: 
-    furniture_ids (List of str): The IDs of the ordered furniture items.
-    manufacturers (List of str): The manufacturers of the ordered items.
-    product_names (List of str): The names of the ordered products.
-    quantities (List of str): The quantities of each ordered item.
-    transactions (List of dict): A list containing transaction details, with the employee's name.
-    price_per_units (List of str): The price per unit for each ordered item.
-    item_totals (List of str): The total cost for each item.
-    subtotal (float): The subtotal amount before shipping costs.
-    shipping_cost (float): The cost of shipping.
-    grand_total (float): The total amount including shipping costs.
-    filename (str): The name of the file to which the invoice will be written.
+    furniture_ids : The IDs of the ordered furniture items.
+    manufacturers : The manufacturers of the ordered items.
+    product_names : The names of the ordered products.
+    quantities : The quantities of each ordered item.
+    transactions : A list containing transaction details, with the employee's name.
+    price_per_units : The price per unit for each ordered item.
+    item_totals : The total cost for each item.
+    subtotal : The subtotal amount before shipping costs.
+    shipping_cost : The cost of shipping.
+    grand_total : The total amount including shipping costs.
+    filename : The name of the file to which the invoice will be written.
     
     Return: 
     None
@@ -85,13 +85,13 @@ def sell_invoice(filename, customer_name,transactions,subtotal,vat_amount,shippi
     unit, total costs, subtotal, VAT amount, shipping cost, and grand total.
 
     Arguments: 
-    filename (str): The name of the file to which the invoice will be written.
-    customer_name (str): The name of the customer making the purchase.
-    transactions (List of dict): A list of dictionaries containing transaction details, including furniture ID, brand, product name, quantity, price per unit, and total cost.
-    subtotal (float): The subtotal amount before VAT and shipping costs.
-    vat_amount (float): The VAT amount to be added.
-    shipping_cost (float): The cost of shipping.
-    grand_total (float): The total amount including VAT and shipping costs.
+    filename : The name of the file to which the invoice will be written.
+    customer_name : The name of the customer making the purchase.
+    transactions : A list of dictionaries containing transaction details, including furniture ID, brand, product name, quantity, price per unit, and total cost.
+    subtotal : The subtotal amount before VAT and shipping costs.
+    vat_amount : The VAT amount to be added.
+    shipping_cost : The cost of shipping.
+    grand_total : The total amount including VAT and shipping costs.
     
     Return: 
     None

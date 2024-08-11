@@ -47,7 +47,7 @@ def for_choice_3():
     '''
     Description: Manages the process of selling furniture to a customer. The function prompts the user to enter the customer's name 
     and allows the user to select furniture items from the inventory to sell. It validates the customer's name, furniture ID, 
-    and ensures that the quantity specified is available in the inventory and is a positive number. After processing the transaction(s),
+    and ensures that the quantity specified is available in the inventory and is a positive number. After processing the transactions,
     the function calls another function to complete the sale.
 
     Arguments: None
