@@ -78,8 +78,8 @@ def generate_invoice(transactions):
     '''
     Description: Generates an order invoice based on the provided transactions and saves it to a file. 
     The invoice includes details such as furniture IDs, manufacturers, product names, quantities, 
-    price per unit, item totals, subtotal, shipping cost (gives the choice to input the location in the form of really far, far and near), and grand total. The filename is created using 
-    the employee's name and the current date and time.
+    price per unit, item totals, subtotal, shipping cost (gives the choice to input the location in the form of really far, far and near), and grand total.
+    The filename is created using the employee's name and the current date and time.
 
     Arguments: 
     transactions : A list of dictionaries where each dictionary represents a transaction

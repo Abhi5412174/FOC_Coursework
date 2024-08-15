@@ -13,7 +13,11 @@ def read_furniture_data():
     try:
         with open("inventory.txt", "r") as file:
             lines = file.readlines()
-        data = [line.strip().split(",") for line in lines]
+        data = []
+        for line in lines:
+            stripped_line = line.strip()
+            split_line = stripped_line.split(",")
+            data.append(split_line)
        
         print(f"\n{'ID':<2} | {'Manufacturers':<30} | {'Product Name':<15} | {'Quantity':<10} | {'Price':<5}")
         print("-" * 78)
